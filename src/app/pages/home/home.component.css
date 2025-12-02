@@ -1,0 +1,48 @@
+.image-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(216, 216, 216, 0.178);
+  border-radius: 500px;
+}
+
+#person-image {
+  display: block;
+  width: 40rem;
+  margin-left: -100px;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-text {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.circular-animation {
+  z-index: 100px;
+}
+
+/* 
+@media (min-width: 576px) {
+  .image-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(216, 216, 216, 0.178);
+    border-radius: 100px;
+  }
+
+  #person-image {
+    display: block;
+    width: 2rem;
+    margin-left: -100px;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+
+@media (min-width: 768px) {
+} */

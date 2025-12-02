@@ -1,0 +1,35 @@
+<div class="center">
+    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+          <g *ngFor="let icon of icons">
+            <image 
+            [attr.href]="icon.icon"
+              x="-15" 
+              y="-15" 
+              width="50" 
+              height="50"
+              preserveAspectRatio="xMidYMid meet">
+              <animateMotion
+                [attr.begin]="icon.id * 0.5 + 's'"
+                dur="4s"
+                repeatCount="indefinite">
+                <mpath [attr.href]="'#ellipsePath'"/>
+              </animateMotion>
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0"
+                to="360"
+                dur="4s"
+                repeatCount="indefinite"
+                [attr.begin]="icon.id * 0.5 + 's'"/>
+            </image>
+          </g>
+  
+          <path
+            id="ellipsePath"
+            [attr.d]="getEllipsePath()"
+            fill="none"
+            stroke="white"/>
+        </svg>
+  </div>

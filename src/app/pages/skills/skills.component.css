@@ -1,0 +1,83 @@
+/* .flip-anim {
+  width: 8rem;
+  height: 10rem;
+}
+
+.flip-anim:hover {
+  width: 80rem;
+  height: 100rem;
+} */
+.back-shadow-spring {
+  box-shadow: rgba(109, 241, 76, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-angular {
+  box-shadow: rgba(241, 81, 76, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-react {
+  box-shadow: rgba(76, 208, 241, 0.56) 0px 22px 70px 4px;
+}
+.back-shadow-html {
+  box-shadow: rgba(230, 81, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-css {
+  box-shadow: rgb(42, 164, 244, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-js {
+  box-shadow: rgb(255, 214, 0, 0.56) 0px 22px 70px 4px;
+}
+.back-shadow-ts {
+  box-shadow: rgb(13, 97, 169, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-redux {
+  box-shadow: rgb(126, 87, 194, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-java {
+  box-shadow: rgb(92, 101, 214, 0.56) 0px 22px 70px 4px;
+}
+.back-shadow-nodejs {
+  box-shadow: rgb(33, 163, 102, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-mysql {
+  box-shadow: rgb(232, 121, 18, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-git {
+  box-shadow: rgb(244, 81, 30, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-jira {
+  box-shadow: rgba(76, 208, 241, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-notion {
+  box-shadow: rgba(155, 155, 155, 0.596) 0px 22px 70px 4px;
+}
+
+.back-shadow-docker {
+  box-shadow: rgba(76, 208, 241, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-aws {
+  box-shadow: rgb(232, 121, 18, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-azure {
+  box-shadow: rgba(76, 208, 241, 0.56) 0px 22px 70px 4px;
+}
+
+.back-shadow-jenkins {
+  box-shadow: rgba(241, 81, 76, 0.56) 0px 22px 70px 4px;
+}
+/* Add a bit of margin for mobile views */
+@media (max-width: 576px) {
+  .card {
+    margin-bottom: 1rem;
+  }
+}
