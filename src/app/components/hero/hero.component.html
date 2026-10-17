@@ -1,0 +1,240 @@
+<section class="hero-section portfolio-section" id="hero">
+  <div class="portfolio-container">
+    <div class="hero-grid">
+      <!-- Left Column: Typography & CTAs -->
+      <div class="hero-content">
+        <!-- Live Status Badge -->
+        <div class="status-indicator mb-3">
+          <span class="status-dot"></span>
+          <span>{{ profile.statusText }}</span>
+        </div>
+
+        <!-- Role Badge -->
+        <div class="section-label mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          FULL-STACK DEVELOPER · JAVA & ANGULAR
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-title">
+          Building thoughtful digital experiences with
+          <span class="gradient-text-purple-cyan">scalable engineering.</span>
+        </h1>
+
+        <!-- Supporting Description -->
+        <p class="hero-lead">
+          I am <strong>{{ profile.name }}</strong>, a Full Stack Developer with <strong>3.5+ years of enterprise experience</strong> building high-throughput web applications with <strong>Java, Spring Boot, and Angular</strong>. From real-time geospatial telemetry dashboards to robust distributed microservices, I deliver reliable, user-focused digital systems.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <button (click)="scrollTo('projects')" class="btn-premium btn-premium-primary">
+            <span>Explore My Work</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <a
+            [href]="profile.resumeUrl"
+            download="Chiranjib_Das_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-premium btn-premium-secondary"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Resume</span>
+          </a>
+
+          <button (click)="scrollTo('contact')" class="btn-connect-link">
+            <span>Let's Connect</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Tech Quick Badges -->
+        <div class="hero-tech-strip">
+          <span class="tech-strip-label">CORE STACK:</span>
+          <span class="tech-badge">Java 11+</span>
+          <span class="tech-badge">Spring Boot</span>
+          <span class="tech-badge">Angular</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">AWS & Docker</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Developer Workspace Visual -->
+      <div class="hero-visual">
+        <div class="workspace-window">
+          <!-- Window Title Bar -->
+          <div class="window-header">
+            <div class="window-controls">
+              <span class="control-dot close"></span>
+              <span class="control-dot minimize"></span>
+              <span class="control-dot expand"></span>
+            </div>
+            <!-- Window Tabs -->
+            <div class="window-tabs">
+              <button
+                type="button"
+                (click)="setWorkspaceTab('telemetry')"
+                [class.active]="activeWorkspaceTab === 'telemetry'"
+                class="tab-btn"
+              >
+                <span class="tab-indicator green"></span>
+                <span>TurbineTelemetry.ts</span>
+              </button>
+              <button
+                type="button"
+                (click)="setWorkspaceTab('controller')"
+                [class.active]="activeWorkspaceTab === 'controller'"
+                class="tab-btn"
+              >
+                <span>InsightsController.java</span>
+              </button>
+              <button
+                type="button"
+                (click)="setWorkspaceTab('terminal')"
+                [class.active]="activeWorkspaceTab === 'terminal'"
+                class="tab-btn"
+              >
+                <span>terminal.log</span>
+              </button>
+            </div>
+            <div class="window-status">
+              <span class="latency-pill">{{ lastPingMs }}ms</span>
+            </div>
+          </div>
+
+          <!-- Window Content Area -->
+          <div class="window-body">
+            <!-- TAB 1: Live Interactive Telemetry Visualizer -->
+            <div *ngIf="activeWorkspaceTab === 'telemetry'" class="workspace-pane telemetry-pane">
+              <div class="pane-top-bar">
+                <div class="pane-title-group">
+                  <span class="pulse-icon" [class.paused]="!turbineRunning"></span>
+                  <span class="pane-title">Turbine Unit #07 · Coastal Sector B</span>
+                </div>
+                <button
+                  type="button"
+                  (click)="toggleTurbineState()"
+                  class="sim-action-btn"
+                  [class.active]="turbineRunning"
+                >
+                  {{ turbineRunning ? 'Pause Stream' : 'Resume Telemetry' }}
+                </button>
+              </div>
+
+              <!-- Metrics Cards Row -->
+              <div class="telemetry-metric-grid">
+                <div class="sim-metric-card">
+                  <span class="metric-caption">Angular Maps Stream</span>
+                  <span class="metric-value text-accent-cyan">{{ turbineRpm }} <small>RPM</small></span>
+                  <div class="mini-progress-bar">
+                    <div class="mini-progress-fill cyan" [style.width.%]="(turbineRpm / 25) * 100"></div>
+                  </div>
+                </div>
+
+                <div class="sim-metric-card">
+                  <span class="metric-caption">Active Output</span>
+                  <span class="metric-value text-accent-purple">{{ turbinePower }} <small>MW</small></span>
+                  <div class="mini-progress-bar">
+                    <div class="mini-progress-fill purple" [style.width.%]="(turbinePower / 3.0) * 100"></div>
+                  </div>
+                </div>
+
+                <div class="sim-metric-card">
+                  <span class="metric-caption">System Health</span>
+                  <span class="metric-value text-accent-green">{{ turbineHealth }}</span>
+                  <span class="metric-sub">Spring Boot API 200 OK</span>
+                </div>
+              </div>
+
+              <!-- Code Snippet Box inside simulation -->
+              <div class="code-preview-box">
+                <div class="code-line"><span class="c-keyword">export class</span> <span class="c-class">TurbineTelemetryComponent</span> <span class="c-keyword">implements</span> <span class="c-interface">OnInit</span> {{ '{' }}</div>
+                <div class="code-line indent-1"><span class="c-property">@Input()</span> plantLocation: <span class="c-type">google.maps.LatLngLiteral</span>;</div>
+                <div class="code-line indent-1">telemetry$: <span class="c-type">Observable</span>&lt;<span class="c-type">TurbineMetrics</span>&gt;;</div>
+                <div class="code-line indent-1"><span class="c-keyword">constructor</span>(<span class="c-keyword">private</span> insightsService: <span class="c-type">EnergyInsightsService</span>) {{ '{' }}{{ '}' }}</div>
+                <div class="code-line">{{ '}' }}</div>
+              </div>
+            </div>
+
+            <!-- TAB 2: Spring Boot Backend Controller -->
+            <div *ngIf="activeWorkspaceTab === 'controller'" class="workspace-pane code-pane">
+              <pre class="code-block"><code><span class="c-annotation">@RestController</span>
+<span class="c-annotation">@RequestMapping</span>(<span class="c-string">"/api/v1/energy/turbines"</span>)
+<span class="c-annotation">@CrossOrigin</span>(origins = <span class="c-string">"*"</span>)
+<span class="c-keyword">public class</span> <span class="c-class">EnergyInsightsController</span> {{ '{' }}
+
+    <span class="c-keyword">private final</span> <span class="c-type">TurbineTelemetryService</span> telemetryService;
+    <span class="c-keyword">private final</span> <span class="c-type">ReportExportService</span> exportService;
+
+    <span class="c-annotation">@GetMapping</span>(<span class="c-string">"/telemetry"</span>)
+    <span class="c-keyword">public</span> <span class="c-type">ResponseEntity</span>&lt;<span class="c-type">Page</span>&lt;<span class="c-type">TurbineDTO</span>&gt;&gt; <span class="c-function">getRealtimeTelemetry</span>(
+            <span class="c-annotation">@RequestParam</span>(defaultValue = <span class="c-string">"0"</span>) <span class="c-type">int</span> page,
+            <span class="c-annotation">@RequestParam</span>(defaultValue = <span class="c-string">"25"</span>) <span class="c-type">int</span> size) {{ '{' }}
+        <span class="c-keyword">return</span> ResponseEntity.ok(telemetryService.fetchOptimizedPage(page, size));
+    {{ '}' }}
+
+    <span class="c-annotation">@GetMapping</span>(<span class="c-string">"/export/{{ '{' }}format{{ '}' }}"</span>)
+    <span class="c-keyword">public</span> <span class="c-type">ResponseEntity</span>&lt;<span class="c-type">Resource</span>&gt; <span class="c-function">exportAuditReport</span>(
+            <span class="c-annotation">@PathVariable</span> <span class="c-type">String</span> format) {{ '{' }}
+        <span class="c-keyword">return</span> exportService.streamReport(format); <span class="c-comment">// PDF &amp; Excel streaming</span>
+    {{ '}' }}
+{{ '}' }}</code></pre>
+            </div>
+
+            <!-- TAB 3: Terminal Logs -->
+            <div *ngIf="activeWorkspaceTab === 'terminal'" class="workspace-pane terminal-pane">
+              <div class="terminal-header-line">
+                <span class="text-accent-cyan">[chiranjib@enterprise-workspace] $</span> ng serve --open & mvn spring-boot:run
+              </div>
+              <div *ngFor="let log of terminalLogs" class="terminal-log-entry">
+                <span class="log-tag" [class.success]="log.type === 'success'" [class.info]="log.type === 'info'">
+                  {{ log.type | uppercase }}
+                </span>
+                <span class="log-text">{{ log.text }}</span>
+              </div>
+              <div class="terminal-cursor-line">
+                <span class="text-accent-purple">&gt;</span> Listening on http://localhost:8080 & http://localhost:4200
+                <span class="blinking-cursor">_</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Window Footer -->
+          <div class="window-footer">
+            <div class="footer-branch">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="6" y1="3" x2="6" y2="15"></line>
+                <circle cx="18" cy="6" r="3"></circle>
+                <circle cx="6" cy="18" r="3"></circle>
+                <path d="M18 9a9 9 0 0 1-9 9"></path>
+              </svg>
+              <span>main · production</span>
+            </div>
+            <div class="footer-techs">
+              <span>Java 11+</span>
+              <span>·</span>
+              <span>Spring Boot</span>
+              <span>·</span>
+              <span>Angular 16</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,51 +1,128 @@
-<nav class="navbar navbar-expand-lg" [ngClass]="isDarkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'">
-  <div class="container">
-    <!-- Brand/logo -->
-    <a class="navbar-brand" href="/home">Portfolio</a>
-    
-    <!-- Dark Mode Toggle Button -->
-    <div class="d-lg-none ms-auto px-2">
-      <button 
-        class="btn btn-sm" 
-        [ngClass]="isDarkMode ? 'btn-light' : 'btn-dark'"
-        (click)="toggleDarkMode()"
-      >
-        {{ isDarkMode ? '☀️ Light' : '🌙 Dark' }}
-      </button>
-    </div>
-    
-    <!-- Hamburger button for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<header class="navbar-wrapper" [class.scrolled]="isScrolled">
+  <div class="portfolio-container navbar-inner">
+    <!-- Brand / Monogram Logo -->
+    <a (click)="scrollTo('hero')" class="brand-link" role="button" tabindex="0" aria-label="Chiranjib Das Home">
+      <div class="monogram-badge">
+        <span class="monogram-letters">CD</span>
+        <span class="monogram-glow"></span>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Chiranjib Das</span>
+        <span class="brand-role">Senior Systems Engineer</span>
+      </div>
+    </a>
 
-    <!-- Navbar items -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home">Home</a>
+    <!-- Desktop Nav Links -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li *ngFor="let item of navItems" class="nav-item">
+          <a
+            (click)="scrollTo(item.target)"
+            [class.active]="activeSection === item.target"
+            class="nav-link"
+            role="button"
+            tabindex="0"
+          >
+            {{ item.label }}
+            <span class="active-indicator" *ngIf="activeSection === item.target"></span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/skills">Skills</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="/works">Works</a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="/contact">Contact</a>
-        </li> -->
       </ul>
-    </div>
-    
-    <!-- Dark Mode Toggle Button for Small Screens -->
-    <div class="d-none d-lg-flex">
-      <button 
-        class="btn ms-auto" 
-        [ngClass]="isDarkMode ? 'btn-light' : 'btn-dark'"
-        (click)="toggleDarkMode()"
+    </nav>
+
+    <!-- Right Action Group -->
+    <div class="navbar-actions">
+      <!-- Theme Toggle -->
+      <button
+        type="button"
+        (click)="toggleTheme()"
+        class="theme-toggle-btn"
+        [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+        title="Toggle Theme"
       >
-        {{ isDarkMode ? '☀️ Light' : '🌙 Dark' }}
+        <svg *ngIf="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg *ngIf="!isDarkMode" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Resume Download CTA -->
+      <a
+        [href]="profile.resumeUrl"
+        download="Chiranjib_Das_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-resume"
+      >
+        <span>Resume</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </a>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button
+        type="button"
+        (click)="toggleMobileMenu()"
+        class="mobile-menu-btn"
+        [class.open]="mobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
       </button>
     </div>
   </div>
-</nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" [class.open]="mobileMenuOpen">
+    <div class="mobile-drawer-backdrop" (click)="closeMobileMenu()"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <div class="monogram-badge small">
+          <span class="monogram-letters">CD</span>
+        </div>
+        <span class="mobile-brand-title">Navigation</span>
+        <button (click)="closeMobileMenu()" class="close-btn" aria-label="Close menu">✕</button>
+      </div>
+
+      <ul class="mobile-nav-list">
+        <li *ngFor="let item of navItems">
+          <a
+            (click)="scrollTo(item.target)"
+            [class.active]="activeSection === item.target"
+            class="mobile-nav-link"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <a
+          [href]="profile.resumeUrl"
+          download="Chiranjib_Das_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-premium btn-premium-primary w-100"
+          (click)="closeMobileMenu()"
+        >
+          Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

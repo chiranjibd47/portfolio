@@ -1,6 +1,14 @@
-.full-container {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+.portfolio-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.portfolio-main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }

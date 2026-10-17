@@ -1,0 +1,97 @@
+<section class="portfolio-section" id="about">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        BACKGROUND & PHILOSOPHY
+      </div>
+      <h2 class="section-title">
+        Engineering reliable software from
+        <span class="gradient-text-purple-cyan">first principles.</span>
+      </h2>
+      <p class="section-description">
+        With a rigorous foundation in engineering and 3.5+ years of production experience at Infosys, I specialize in bridging complex enterprise backend services with high-fidelity, responsive client applications.
+      </p>
+    </div>
+
+    <!-- About Grid Composition -->
+    <div class="about-grid">
+      <!-- Left Column: Authentic Professional Story & Portrait -->
+      <div class="about-narrative-card premium-card">
+        <div class="author-portrait-row">
+          <div class="portrait-frame">
+            <img src="assets/images/my_image.png" alt="Chiranjib Das" class="portrait-img" />
+            <div class="portrait-glow"></div>
+          </div>
+          <div class="portrait-details">
+            <h3 class="author-name">{{ profile.name }}</h3>
+            <p class="author-role">{{ profile.role }} @ Infosys</p>
+            <div class="author-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>{{ profile.location }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="narrative-body">
+          <p>
+            My engineering trajectory is defined by a deep appreciation for systems that operate predictably under heavy operational load. Coming from an analytical engineering degree into full-stack software development, I view software through the lens of structural integrity, clear boundaries, and latency efficiency.
+          </p>
+          <p>
+            At <strong>Infosys</strong>, I have spearheaded core features across industrial telemetry platforms and high-velocity logistics platforms. Whether configuring Google Maps API layers to plot real-time wind turbine parameters, writing optimized Spring Boot report generators streaming PDF/Excel binaries, or modernizing enterprise Angular codebases from version 6 up to 16, I focus on building software that remains maintainable years after deployment.
+          </p>
+          <p>
+            I place immense value on clean architectural contracts: type-safe DTOs between the backend and UI, normalized schemas without redundant SQL overhead, and intuitive user experiences that turn dense data into actionable decisions.
+          </p>
+        </div>
+
+        <div class="credentials-badge-row">
+          <div class="credential-item">
+            <span class="cred-icon">⚡</span>
+            <span class="cred-text">Infosys Certified Angular Architect</span>
+          </div>
+          <div class="credential-item">
+            <span class="cred-icon">☁️</span>
+            <span class="cred-text">Microsoft Certified: Azure</span>
+          </div>
+          <div class="credential-item">
+            <span class="cred-icon">🗄️</span>
+            <span class="cred-text">Infosys Certified SQL Professional</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Engineering Principles -->
+      <div class="principles-column">
+        <div class="principles-header">
+          <span class="principles-caption">CORE PRINCIPLES</span>
+          <h3 class="principles-title">How I Approach Software Engineering</h3>
+        </div>
+
+        <div class="principles-list">
+          <div
+            *ngFor="let principle of principles; let idx = index"
+            class="principle-card"
+            [class.active]="activePrincipleIndex === idx"
+            (click)="selectPrinciple(idx)"
+          >
+            <div class="principle-top">
+              <span class="principle-number">{{ principle.number }}</span>
+              <span class="principle-metric">{{ principle.metric }}</span>
+            </div>
+            <h4 class="principle-name">{{ principle.title }}</h4>
+            <p class="principle-desc">{{ principle.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

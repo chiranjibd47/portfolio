@@ -1,0 +1,97 @@
+<section class="portfolio-section" id="experience">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+        CAREER PROGRESSION
+      </div>
+      <h2 class="section-title">
+        Enterprise experience delivering
+        <span class="gradient-text-purple-cyan">high-impact systems.</span>
+      </h2>
+      <p class="section-description">
+        3.5+ years of software engineering at Infosys building production-grade services, optimizing API query performance, and crafting reactive enterprise interfaces.
+      </p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <div *ngFor="let exp of experiences; let idx = index" class="timeline-item" [class.is-current]="exp.isCurrent">
+        <!-- Timeline Marker -->
+        <div class="timeline-marker">
+          <div class="marker-dot"></div>
+          <div class="marker-glow" *ngIf="exp.isCurrent"></div>
+        </div>
+
+        <!-- Experience Card -->
+        <div class="timeline-card premium-card">
+          <!-- Card Header -->
+          <div class="card-header-row">
+            <div class="role-company-group">
+              <span class="exp-badge" [class.current]="exp.isCurrent">{{ exp.badge }}</span>
+              <h3 class="role-title">{{ exp.role }}</h3>
+              <div class="company-client-line">
+                <span class="company-name">{{ exp.company }}</span>
+                <span class="divider-bullet">•</span>
+                <span class="client-name">Client: {{ exp.client }}</span>
+              </div>
+            </div>
+
+            <div class="period-location-group">
+              <div class="period-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>{{ exp.period }}</span>
+              </div>
+              <div class="location-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>{{ exp.location }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview -->
+          <p class="exp-overview">{{ exp.overview }}</p>
+
+          <!-- System Metric Highlights -->
+          <div class="metrics-strip">
+            <div *ngFor="let h of exp.systemHighlights" class="metric-pill">
+              <span class="metric-bold">{{ h.metric }}</span>
+              <span class="metric-sub-label">{{ h.label }}</span>
+            </div>
+          </div>
+
+          <!-- Responsibilities & Scope -->
+          <div class="responsibilities-box">
+            <div class="box-title">Key Responsibilities & Deliverables</div>
+            <ul class="resp-list">
+              <li *ngFor="let resp of exp.responsibilities" class="resp-item">
+                <span class="bullet-arrow">→</span>
+                <span>{{ resp }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Technologies Footer -->
+          <div class="tech-tags-footer">
+            <span class="tech-label">Stack:</span>
+            <div class="tags-row">
+              <span *ngFor="let tech of exp.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

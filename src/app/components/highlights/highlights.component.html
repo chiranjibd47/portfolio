@@ -1,0 +1,17 @@
+<section class="highlights-section" id="highlights">
+  <div class="portfolio-container">
+    <div class="highlights-container">
+      <div class="highlights-grid">
+        <div *ngFor="let stat of stats; let i = index" class="highlight-card">
+          <div class="highlight-top">
+            <span class="highlight-index">0{{ i + 1 }}</span>
+            <span class="highlight-accent-dot" [class]="stat.accent"></span>
+          </div>
+          <div class="highlight-value" [class]="stat.accent">{{ stat.value }}</div>
+          <div class="highlight-label">{{ stat.label }}</div>
+          <p class="highlight-detail">{{ stat.detail }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

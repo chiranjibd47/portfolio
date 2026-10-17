@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'portofolio';
-  isDarkMode = true;
+export class AppComponent implements OnInit {
+  title = 'Chiranjib Das - Senior Systems Engineer Portfolio';
 
-  darkOrLight($event: boolean) {
-    this.isDarkMode = $event;
+  constructor(public themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    // Theme service automatically applies theme on initialization
   }
 }

@@ -1,0 +1,50 @@
+<section class="portfolio-section" id="approach">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label cyan">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 14 14"></polyline>
+        </svg>
+        ENGINEERING METHODOLOGY
+      </div>
+      <h2 class="section-title">
+        A disciplined approach to
+        <span class="gradient-text-purple-cyan">shipping software.</span>
+      </h2>
+      <p class="section-description">
+        How I break down ambiguous problems into modular architectures, verifiable milestones, and performant production code.
+      </p>
+    </div>
+
+    <!-- Process Workflow Grid -->
+    <div class="approach-grid">
+      <div
+        *ngFor="let item of steps; let i = index"
+        class="approach-card premium-card"
+        [class.active]="activeStep === i"
+        (click)="selectStep(i)"
+      >
+        <div class="approach-card-top">
+          <span class="step-badge">{{ item.step }}</span>
+          <span class="tag-badge">{{ item.tag }}</span>
+        </div>
+
+        <h3 class="step-title">{{ item.title }}</h3>
+        <span class="step-subtitle">{{ item.subtitle }}</span>
+
+        <p class="step-desc">{{ item.description }}</p>
+
+        <div class="deliverables-box">
+          <span class="del-label">CORE DELIVERABLES:</span>
+          <ul class="del-list">
+            <li *ngFor="let d of item.deliverables">
+              <span class="del-bullet">•</span> {{ d }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

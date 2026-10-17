@@ -1,0 +1,154 @@
+<section class="portfolio-section" id="contact">
+  <div class="portfolio-container">
+    <div class="contact-card-wrapper premium-card">
+      <div class="contact-grid">
+        <!-- Left: Direct Info & Channels -->
+        <div class="contact-info-col">
+          <div class="section-label cyan">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            GET IN TOUCH
+          </div>
+
+          <h2 class="contact-main-title">
+            Have an interesting problem
+            <span class="gradient-text-purple-cyan">to solve?</span>
+          </h2>
+
+          <p class="contact-lead-text">
+            I'm always interested in connecting with teams building resilient, data-driven platforms, scaling microservices, and crafting modern digital experiences.
+          </p>
+
+          <!-- Contact Channels List -->
+          <div class="channels-list">
+            <!-- Email Item with Copy Button -->
+            <div class="channel-card">
+              <div class="channel-icon-col">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Email Address</span>
+                <a [href]="'mailto:' + profile.email" class="channel-val-link">{{ profile.email }}</a>
+              </div>
+              <button
+                type="button"
+                (click)="copyEmail()"
+                class="copy-btn"
+                [attr.aria-label]="'Copy email address'"
+                title="Copy to clipboard"
+              >
+                <span *ngIf="!copied">Copy</span>
+                <span *ngIf="copied" class="copied-badge">Copied!</span>
+              </button>
+            </div>
+
+            <!-- Phone Item -->
+            <div class="channel-card">
+              <div class="channel-icon-col">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Phone</span>
+                <a [href]="'tel:' + profile.phone" class="channel-val-link">{{ profile.phone }}</a>
+              </div>
+            </div>
+
+            <!-- Location Item -->
+            <div class="channel-card">
+              <div class="channel-icon-col">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Location</span>
+                <span class="channel-val-text">{{ profile.location }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Links -->
+          <div class="social-links-row">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link-btn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn Profile</span>
+            </a>
+
+            <a
+              [href]="profile.resumeUrl"
+              download="Chiranjib_Das_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link-btn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download Resume</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Direct Mail Composer Helper -->
+        <div class="composer-col">
+          <div class="composer-box">
+            <div class="composer-header">
+              <span class="composer-title">Quick Message Composer</span>
+              <span class="composer-sub">Opens your native mail client with pre-filled fields</span>
+            </div>
+
+            <div class="composer-field">
+              <label for="contact-subject" class="field-label">Subject</label>
+              <input
+                id="contact-subject"
+                type="text"
+                [(ngModel)]="senderSubject"
+                placeholder="Engineering Role / Project Collaboration"
+                class="field-input"
+              />
+            </div>
+
+            <div class="composer-field">
+              <label for="contact-message" class="field-label">Message Outline</label>
+              <textarea
+                id="contact-message"
+                [(ngModel)]="senderMessage"
+                rows="5"
+                placeholder="Hi Chiranjib, we are developing a high-performance system and would like to discuss..."
+                class="field-input textarea"
+              ></textarea>
+            </div>
+
+            <button type="button" (click)="launchMail()" class="btn-premium btn-premium-primary w-100">
+              <span>Compose Email Directly</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+            <p class="composer-note">
+              No middleman or database storage. Click opens your default email app via direct <code>mailto</code>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

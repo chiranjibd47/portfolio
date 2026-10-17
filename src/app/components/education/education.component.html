@@ -1,0 +1,60 @@
+<section class="portfolio-section" id="education">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label green">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+        FOUNDATIONS & CREDENTIALS
+      </div>
+      <h2 class="section-title">
+        Education & verified
+        <span class="gradient-text-purple-cyan">certifications.</span>
+      </h2>
+      <p class="section-description">
+        Rigorous engineering education complemented by 5 verified industry certifications in Angular Architecture, Cloud, and Database systems.
+      </p>
+    </div>
+
+    <div class="edu-cert-grid">
+      <!-- Left Column: Certifications -->
+      <div class="certs-column">
+        <h3 class="col-heading">Verified Industry Certifications</h3>
+        <div class="certs-list">
+          <div *ngFor="let cert of certifications" class="cert-card premium-card">
+            <div class="cert-top">
+              <span class="cert-issuer-badge" [class]="cert.badgeColor">{{ cert.issuer }}</span>
+              <span class="verified-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+                </svg>
+                VERIFIED
+              </span>
+            </div>
+            <h4 class="cert-name">{{ cert.name }}</h4>
+            <p class="cert-summary">{{ cert.summary }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Academic Education -->
+      <div class="edu-column">
+        <h3 class="col-heading">Academic Education</h3>
+        <div class="edu-list">
+          <div *ngFor="let item of education" class="edu-card premium-card">
+            <div class="edu-top">
+              <span class="edu-period">{{ item.period }}</span>
+              <span class="edu-location">{{ item.location }}</span>
+            </div>
+            <h4 class="edu-degree">{{ item.degree }}</h4>
+            <div class="edu-field">{{ item.field }}</div>
+            <div class="edu-institution">{{ item.institution }}</div>
+            <p *ngIf="item.details" class="edu-details">{{ item.details }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

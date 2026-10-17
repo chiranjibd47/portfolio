@@ -1,0 +1,393 @@
+<section class="portfolio-section" id="projects">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        FEATURED SYSTEMS & ARCHITECTURE
+      </div>
+      <h2 class="section-title">
+        Enterprise solutions built for
+        <span class="gradient-text-purple-cyan">scale and reliability.</span>
+      </h2>
+      <p class="section-description">
+        Real-world platforms engineered with Angular, Java, and Spring Boot for high-throughput data operations, telemetry visualization, and seamless user experiences.
+      </p>
+    </div>
+
+    <!-- Featured Project 1: Industrial Energy Portal (Large Editorial Layout) -->
+    <div class="featured-project-container premium-card mb-5">
+      <div class="project-editorial-grid">
+        <!-- Left Column: Context & Overview -->
+        <div class="project-info-side">
+          <div class="project-meta-top">
+            <span class="category-badge">ENTERPRISE PLATFORM</span>
+            <span class="client-badge">{{ projects[0].client }}</span>
+          </div>
+
+          <h3 class="project-main-title">{{ projects[0].title }}</h3>
+          <p class="project-tagline">{{ projects[0].subtitle }}</p>
+
+          <p class="project-narrative-summary">{{ projects[0].summary }}</p>
+
+          <!-- Problem & Solution Block -->
+          <div class="problem-solution-accordion">
+            <div class="ps-block">
+              <span class="ps-label text-warning">THE CHALLENGE</span>
+              <p class="ps-text">{{ projects[0].challenge }}</p>
+            </div>
+            <div class="ps-block">
+              <span class="ps-label text-accent-cyan">THE ARCHITECTURE</span>
+              <p class="ps-text">{{ projects[0].solution }}</p>
+            </div>
+          </div>
+
+          <!-- Key Metrics -->
+          <div class="project-metrics-row">
+            <div *ngFor="let m of projects[0].metrics" class="p-metric-item">
+              <span class="p-metric-val">{{ m.value }}</span>
+              <span class="p-metric-lbl">{{ m.label }}</span>
+            </div>
+          </div>
+
+          <!-- Technologies -->
+          <div class="project-tech-tags">
+            <span *ngFor="let tech of projects[0].technologies" class="p-tech-pill">{{ tech }}</span>
+          </div>
+
+          <div class="project-action-row">
+            <button (click)="openCaseStudy(projects[0])" class="btn-premium btn-premium-primary">
+              <span>View Architectural Case Study</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Custom Product-Interface Preview (Interactive Telemetry Dashboard) -->
+        <div class="project-preview-side">
+          <div class="preview-device-window">
+            <!-- Simulated Browser Header -->
+            <div class="preview-browser-bar">
+              <div class="browser-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="browser-address">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>https://energy-portal.internal.corp/turbines/geospatial-telemetry</span>
+              </div>
+              <span class="telemetry-live-pill">LIVE 60 FPS</span>
+            </div>
+
+            <!-- Simulated Dashboard Body -->
+            <div class="preview-dashboard-body">
+              <!-- Top Dashboard Control -->
+              <div class="sim-dashboard-nav">
+                <div class="nav-title">
+                  <strong>Wind Energy Grid</strong> · Coastal Telemetry Overlay
+                </div>
+                <div class="turbines-selector">
+                  <button
+                    *ngFor="let t of turbines"
+                    (click)="selectTurbine(t)"
+                    [class.selected]="selectedTurbine.id === t.id"
+                    class="sim-turbine-btn"
+                  >
+                    {{ t.id }}
+                  </button>
+                </div>
+              </div>
+
+              <!-- Simulated Map / Telemetry Canvas -->
+              <div class="sim-map-canvas">
+                <div class="sim-map-grid-pattern"></div>
+
+                <!-- Simulated Map Markers -->
+                <div class="sim-geo-node node-1" [class.active]="selectedTurbine.id === 'T-01'">
+                  <div class="node-pulse"></div>
+                  <div class="node-pin">T-01</div>
+                </div>
+                <div class="sim-geo-node node-2" [class.active]="selectedTurbine.id === 'T-02'">
+                  <div class="node-pin">T-02</div>
+                </div>
+                <div class="sim-geo-node node-3" [class.active]="selectedTurbine.id === 'T-03'">
+                  <div class="node-pin warning">T-03</div>
+                </div>
+
+                <!-- Floating Telemetry Overlay Card -->
+                <div class="floating-telemetry-hud">
+                  <div class="hud-header">
+                    <span class="hud-turbine-name">{{ selectedTurbine.name }}</span>
+                    <span class="hud-status" [class.warn]="selectedTurbine.status === 'Maintenance'">{{ selectedTurbine.status }}</span>
+                  </div>
+
+                  <div class="hud-stats-grid">
+                    <div class="hud-stat-cell">
+                      <span class="hud-label">Turbine Speed</span>
+                      <span class="hud-value">{{ selectedTurbine.speedRpm }} <small>RPM</small></span>
+                    </div>
+                    <div class="hud-stat-cell">
+                      <span class="hud-label">Active Generation</span>
+                      <span class="hud-value">{{ selectedTurbine.powerMw }} <small>MW</small></span>
+                    </div>
+                    <div class="hud-stat-cell">
+                      <span class="hud-label">Health Status</span>
+                      <span class="hud-value small">{{ selectedTurbine.health }}</span>
+                    </div>
+                    <div class="hud-stat-cell">
+                      <span class="hud-label">Last Maintenance</span>
+                      <span class="hud-value small">{{ selectedTurbine.lastMaint }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Outage Planning & Spring Boot Export Trigger -->
+              <div class="sim-export-section">
+                <div class="export-label-group">
+                  <span class="export-title">Outage Management & Report Engine</span>
+                  <span class="export-desc">Generate exportable audit summaries via Spring Boot logic</span>
+                </div>
+                <div class="export-buttons-group">
+                  <button
+                    type="button"
+                    (click)="triggerExport('PDF')"
+                    [disabled]="exportingFormat !== null"
+                    class="sim-btn-pdf"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <span>{{ exportingFormat === 'PDF' ? 'Compiling PDF...' : 'Export PDF' }}</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    (click)="triggerExport('Excel')"
+                    [disabled]="exportingFormat !== null"
+                    class="sim-btn-excel"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="3" y1="9" x2="21" y2="9"></line>
+                      <line x1="3" y1="15" x2="21" y2="15"></line>
+                      <line x1="9" y1="3" x2="9" y2="21"></line>
+                    </svg>
+                    <span>{{ exportingFormat === 'Excel' ? 'Compiling Excel...' : 'Export Excel' }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Toast / Feedback inside preview -->
+              <div *ngIf="exportSuccessMsg" class="sim-toast-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span>{{ exportSuccessMsg }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supporting Project Cards Grid: Logistics Intelligence + Security Microservice -->
+    <div class="supporting-projects-grid">
+      <!-- Project 2: Logistics Intelligence Platform -->
+      <div class="supporting-card premium-card">
+        <div class="support-card-top">
+          <div class="meta-tags">
+            <span class="category-badge">ENTERPRISE PLATFORM</span>
+            <span class="client-badge">{{ projects[1].client }}</span>
+          </div>
+          <span class="timeline-badge">{{ projects[1].timeline }}</span>
+        </div>
+
+        <h3 class="support-title">{{ projects[1].title }}</h3>
+        <p class="support-subtitle">{{ projects[1].subtitle }}</p>
+        <p class="support-desc">{{ projects[1].summary }}</p>
+
+        <!-- Interactive Logistics Simulator Widget -->
+        <div class="logistics-sim-widget">
+          <div class="widget-header">
+            <span class="widget-title">Multi-Hub Inventory Flow</span>
+            <div class="hub-pills">
+              <button
+                *ngFor="let h of hubs"
+                (click)="selectHub(h)"
+                [class.active]="selectedHub.name === h.name"
+                class="hub-pill-btn"
+              >
+                {{ h.name.split(' ')[1] }}
+              </button>
+            </div>
+          </div>
+
+          <div class="hub-metrics-box">
+            <div class="hub-metric-item">
+              <span class="lbl">Active Cargo Records</span>
+              <span class="val text-accent-cyan">{{ selectedHub.activeShipments }} units</span>
+            </div>
+            <div class="hub-metric-item">
+              <span class="lbl">Bay Capacity</span>
+              <span class="val text-accent-purple">{{ selectedHub.capacityUsed }}</span>
+            </div>
+            <div class="hub-metric-item">
+              <span class="lbl">Sync State</span>
+              <span class="val text-accent-green">{{ selectedHub.status }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Angular Migration Note -->
+        <div class="migration-banner">
+          <span class="migration-tag">MIGRATION MILESTONE</span>
+          <p class="migration-text">Migrated complex legacy code from Angular 6 to Angular 16, refactoring RxJS observables & updating deprecated dependencies.</p>
+        </div>
+
+        <div class="project-tech-tags">
+          <span *ngFor="let tech of projects[1].technologies" class="p-tech-pill">{{ tech }}</span>
+        </div>
+
+        <div class="support-action">
+          <button (click)="openCaseStudy(projects[1])" class="btn-premium btn-premium-secondary w-100">
+            <span>Explore Case Study & Architecture</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Project 3: Secure Microservices & Cloud Gateway -->
+      <div class="supporting-card premium-card">
+        <div class="support-card-top">
+          <div class="meta-tags">
+            <span class="category-badge cyan">CLOUD & SYSTEMS</span>
+            <span class="client-badge">{{ projects[2].client }}</span>
+          </div>
+          <span class="timeline-badge">{{ projects[2].timeline }}</span>
+        </div>
+
+        <h3 class="support-title">{{ projects[2].title }}</h3>
+        <p class="support-subtitle">{{ projects[2].subtitle }}</p>
+        <p class="support-desc">{{ projects[2].summary }}</p>
+
+        <!-- Security Gateway Visualizer -->
+        <div class="gateway-sim-widget">
+          <div class="security-pipeline-flow">
+            <div class="pipeline-step">
+              <span class="step-num">01</span>
+              <span class="step-name">OAuth2 / OKTA</span>
+              <span class="step-desc">JWT Bearer Verification</span>
+            </div>
+            <div class="pipeline-connector">→</div>
+            <div class="pipeline-step">
+              <span class="step-num">02</span>
+              <span class="step-name">Spring Security</span>
+              <span class="step-desc">Role Filter Chain</span>
+            </div>
+            <div class="pipeline-connector">→</div>
+            <div class="pipeline-step">
+              <span class="step-num">03</span>
+              <span class="step-name">Docker / AWS</span>
+              <span class="step-desc">Stateless Microservice</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlights-checklist">
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Eliminated SQL injection risks with prepared statements & JPA criteria</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Containerized microservices with Docker for reproducible builds</span>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✓</span>
+            <span>Familiarity with AWS cloud primitives: Lambda, S3, DynamoDB, ECS/EKS</span>
+          </div>
+        </div>
+
+        <div class="project-tech-tags">
+          <span *ngFor="let tech of projects[2].technologies" class="p-tech-pill">{{ tech }}</span>
+        </div>
+
+        <div class="support-action">
+          <button (click)="openCaseStudy(projects[2])" class="btn-premium btn-premium-secondary w-100">
+            <span>Explore Case Study & Architecture</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case Study Modal / Drawer -->
+    <div *ngIf="selectedModalProject" class="case-study-modal-overlay">
+      <div class="case-study-modal-backdrop" (click)="closeCaseStudy()"></div>
+      <div class="case-study-modal-content premium-card">
+        <div class="modal-header">
+          <div>
+            <span class="category-badge">{{ selectedModalProject.category }}</span>
+            <h3 class="modal-title">{{ selectedModalProject.title }}</h3>
+            <span class="modal-client">{{ selectedModalProject.client }} · {{ selectedModalProject.timeline }}</span>
+          </div>
+          <button (click)="closeCaseStudy()" class="modal-close-btn" aria-label="Close modal">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-section">
+            <h4 class="modal-sec-title">The Engineering Challenge</h4>
+            <p>{{ selectedModalProject.challenge }}</p>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-sec-title">Architectural Solution</h4>
+            <p>{{ selectedModalProject.solution }}</p>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-sec-title">Core Implementation Details</h4>
+            <ul class="modal-points-list">
+              <li *ngFor="let p of selectedModalProject.implementationHighlights">
+                <span class="text-accent-purple">▸</span> {{ p }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-sec-title">System Architecture Points</h4>
+            <ul class="modal-points-list">
+              <li *ngFor="let a of selectedModalProject.architecturePoints">
+                <span class="text-accent-cyan">▸</span> {{ a }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-sec-title">Technologies Used</h4>
+            <div class="project-tech-tags">
+              <span *ngFor="let t of selectedModalProject.technologies" class="p-tech-pill">{{ t }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button (click)="closeCaseStudy()" class="btn-premium btn-premium-secondary">Close Case Study</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

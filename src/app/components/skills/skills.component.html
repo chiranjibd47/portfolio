@@ -1,0 +1,82 @@
+<section class="portfolio-section" id="skills">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 7 4 4 20 4 20 7"></polyline>
+          <line x1="9" y1="20" x2="15" y2="20"></line>
+          <line x1="12" y1="4" x2="12" y2="20"></line>
+        </svg>
+        TECHNICAL COMPETENCIES
+      </div>
+      <h2 class="section-title">
+        A balanced stack for
+        <span class="gradient-text-purple-cyan">full-stack excellence.</span>
+      </h2>
+      <p class="section-description">
+        Comprehensive engineering toolset spanning robust server-side microservices, modern reactive frontends, relational databases, cloud infrastructure, and enterprise security.
+      </p>
+    </div>
+
+    <!-- Category Filter Bar -->
+    <div class="skills-filter-bar">
+      <button
+        type="button"
+        (click)="setCategory('all')"
+        [class.active]="selectedCategoryId === 'all'"
+        class="filter-pill"
+      >
+        All Domains
+      </button>
+      <button
+        *ngFor="let cat of categories"
+        type="button"
+        (click)="setCategory(cat.id)"
+        [class.active]="selectedCategoryId === cat.id"
+        class="filter-pill"
+      >
+        {{ cat.title }}
+      </button>
+    </div>
+
+    <!-- Skills Category Panels Grid -->
+    <div class="skills-categories-grid">
+      <div *ngFor="let cat of filteredCategories" class="skill-category-card premium-card">
+        <div class="cat-header">
+          <div class="cat-title-group">
+            <span class="cat-indicator"></span>
+            <h3 class="cat-title">{{ cat.title }}</h3>
+          </div>
+          <span class="skills-count">{{ cat.skills.length }} technologies</span>
+        </div>
+
+        <p class="cat-desc">{{ cat.description }}</p>
+
+        <!-- Skills Badges Grid -->
+        <div class="skills-list-grid">
+          <div
+            *ngFor="let skill of cat.skills"
+            class="skill-badge-item"
+            [class.highlight]="skill.highlight"
+          >
+            <div class="badge-top">
+              <div class="icon-name-wrap">
+                <img
+                  *ngIf="skill.iconName"
+                  [src]="getIconPath(skill.iconName)"
+                  [alt]="skill.name + ' icon'"
+                  class="skill-icon"
+                />
+                <span *ngIf="!skill.iconName" class="skill-fallback-icon">▪</span>
+                <span class="skill-name">{{ skill.name }}</span>
+              </div>
+              <span *ngIf="skill.highlight" class="core-tag">Core</span>
+            </div>
+            <p class="skill-context">{{ skill.context }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

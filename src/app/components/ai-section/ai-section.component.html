@@ -1,0 +1,43 @@
+<section class="portfolio-section" id="modern-ai">
+  <div class="portfolio-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+          <path d="M12 6v6l4 2"></path>
+        </svg>
+        INNOVATION & MODERN TOOLING
+      </div>
+      <h2 class="section-title">
+        Exploring AI &
+        <span class="gradient-text-purple-cyan">next-generation workflows.</span>
+      </h2>
+      <p class="section-description">
+        Beyond core enterprise microservices and Angular systems, I continuously adopt modern developer tooling, generative AI techniques, and automated workflows.
+      </p>
+    </div>
+
+    <!-- AI Exploration Grid -->
+    <div class="ai-cards-grid">
+      <div *ngFor="let area of areas" class="ai-card premium-card">
+        <div class="ai-card-header">
+          <div class="ai-meta">
+            <span class="ai-category">{{ area.category }}</span>
+            <span class="ai-status-pill" [class.active]="area.status === 'Active Workflow'">
+              <span class="ai-status-dot"></span>
+              {{ area.status }}
+            </span>
+          </div>
+          <h3 class="ai-title">{{ area.title }}</h3>
+        </div>
+
+        <p class="ai-desc">{{ area.description }}</p>
+
+        <div class="ai-tech-footer">
+          <span *ngFor="let tech of area.technologies" class="ai-tech-pill">{{ tech }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

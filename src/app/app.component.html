@@ -1,32 +1,21 @@
-<div class="full-container" [ngClass]="isDarkMode ? 'bg-dark text-white'  : 'bg-light text-dark'">
-    <app-navbar (modeEmitter) = "darkOrLight($event)"></app-navbar>
-    <router-outlet></router-outlet>  
+<div class="portfolio-layout">
+  <!-- Sticky Blurred Navigation Bar -->
+  <app-navbar></app-navbar>
+
+  <!-- Main Single-Page Portfolio Experience -->
+  <main class="portfolio-main" id="main-content">
+    <app-hero id="hero"></app-hero>
+    <app-highlights id="highlights"></app-highlights>
+    <app-about id="about"></app-about>
+    <app-experience id="experience"></app-experience>
+    <app-projects id="projects"></app-projects>
+    <app-skills id="skills"></app-skills>
+    <app-approach id="approach"></app-approach>
+    <app-ai-section id="modern-ai"></app-ai-section>
+    <app-education id="education"></app-education>
+    <app-contact id="contact"></app-contact>
+  </main>
+
+  <!-- Polished Minimal Footer -->
+  <app-footer></app-footer>
 </div>
-
-<!-- Need to implement -->
-<!-- <footer class="bg-dark text-center text-white mt-0">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-auto">
-          <a href="https://facebook.com" target="_blank" class="text-white me-3">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" class="text-white me-3">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" class="text-white me-3">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://instagram.com" target="_blank" class="text-white">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-12">
-          <p class="mb-0">© 2024 All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer> -->
-
