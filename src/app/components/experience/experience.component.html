@@ -78,7 +78,7 @@
             <ul class="resp-list">
               <li *ngFor="let resp of exp.responsibilities" class="resp-item">
                 <span class="bullet-arrow">→</span>
-                <span>{{ resp }}</span>
+                <span [innerHTML]="resp"></span>
               </li>
             </ul>
           </div>

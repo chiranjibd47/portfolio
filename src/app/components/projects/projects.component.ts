@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { PROJECTS, ProjectItem } from '../../data';
 
 @Component({
@@ -10,6 +10,13 @@ export class ProjectsComponent {
   projects = PROJECTS;
   activeProjectTab: string = 'industrial-energy-portal';
   selectedModalProject: ProjectItem | null = null;
+
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscapeHandler(): void {
+    if (this.selectedModalProject) {
+      this.closeCaseStudy();
+    }
+  }
 
   // Turbine Telemetry Simulation State
   turbines = [

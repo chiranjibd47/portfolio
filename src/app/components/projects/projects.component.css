@@ -6,6 +6,12 @@
   background: var(--surface-card);
 }
 
+@media (max-width: 600px) {
+  .featured-project-container {
+    padding: 1.25rem 1rem;
+  }
+}
+
 .project-editorial-grid {
   display: grid;
   grid-template-columns: 1fr;

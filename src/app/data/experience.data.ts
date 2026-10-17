@@ -30,11 +30,11 @@ export const EXPERIENCES: ExperienceItem[] = [
     overview:
       'Leading full-stack engineering for an industrial energy portal delivering real-time telemetry, geographic turbine monitoring, automated reporting, and planned outage management.',
     responsibilities: [
-      'Integrated Google Maps API within Angular dashboards to dynamically project live wind turbine plant coordinates with real-time rotational speed, operational health status, and maintenance schedules.',
-      'Architected end-to-end modules for scheduled outage management, empowering operators to coordinate preventive maintenance, review downtime forecasts, and record repair milestones directly through the interface.',
-      'Developed high-performance backend reporting pipelines in Spring Boot supporting asynchronous generation of multi-page PDF and Excel exports for turbine telemetry, outage logs, and operational summaries.',
-      'Optimized mission-critical backend APIs by refactoring relational queries, eliminating redundant SQL joins, and implementing server-side pagination and caching for low-latency frontend consumption.',
-      'Took end-to-end technical ownership spanning feature specification, architectural design, full-stack implementation, unit testing, and production documentation.'
+      'Integrated <strong>Google Maps API</strong> into the Angular dashboard to visually project wind turbine plant locations with real-time rotational speed, operational health status, and maintenance schedules.',
+      'Implemented full modules for <strong>scheduled outage management</strong>, allowing plant operators to coordinate downtime, track repair progress, and view upcoming maintenance directly from the UI.',
+      'Created backend logic in <strong>Spring Boot</strong> to generate exportable audit reports, supporting high-throughput <strong>PDF and Excel formats</strong> for turbine performance, outages, and maintenance summaries.',
+      'Optimized backend APIs by refactoring relational queries, <strong>reducing unnecessary joins</strong>, and introducing <strong>pagination and caching</strong> to deliver faster, sub-second responses to the frontend.',
+      'Took <strong>end-to-end technical ownership</strong> of assigned features from initial design and Spring Boot / Angular development to automated testing and documentation.'
     ],
     keyAchievements: [
       'Visualized live turbine health and geospatial metrics on interactive maps with real-time parameter streaming',
@@ -70,12 +70,12 @@ export const EXPERIENCES: ExperienceItem[] = [
     overview:
       'Engineered scalable Java microservices and data pipelines for a multi-hub enterprise logistics tracking system while spearheading key frontend modernization from Angular 6 to Angular 16.',
     responsibilities: [
-      'Developed robust backend services in Java and Spring Boot to track real-time inventory flows across distributed logistics hubs and regional fulfilment centres.',
-      'Designed and executed normalized relational data schemas to maintain shipment transit lifecycles, warehouse bin allocations, and operational workflow history with zero data drift.',
-      'Participated in end-to-end debugging and optimization of core backend worker processes, improving transactional throughput and preventing race conditions in data pipelines.',
-      'Authored exhaustive technical architecture documentation and sequence flow diagrams in Confluence to streamline API adoption across cross-functional frontend, backend, and QA teams.',
-      'Contributed to the major enterprise migration of legacy frontend applications from Angular 6 to Angular 16, replacing deprecated modules and leveraging modern reactive practices.',
-      'Partnered closely with product owners, database administrators, and QA automation engineers to ensure strict test coverage and reliable release cycles.'
+      'Developed robust backend services using <strong>Java and Spring Boot</strong> to manage real-time inventory tracking across distributed logistics hubs and regional distribution centres.',
+      'Designed and implemented normalized relational data models to maintain <strong>shipment statuses, inventory locations, and operational workflows</strong> efficiently.',
+      'Participated in debugging and optimizing backend processes, improving reliability and <strong>reducing errors in data flow</strong>.',
+      'Authored comprehensive documentation in <strong>Confluence</strong> covering API endpoints and application flow diagrams to support cross-functional teams and developers.',
+      'Contributed to migrating the frontend enterprise application from <strong>Angular 6 to Angular 16</strong>, updating deprecated modules and upgrading reactive state.',
+      'Worked closely with cross-functional teams including <strong>QA engineers and product owners</strong> to ensure seamless integrations and timely delivery of features.'
     ],
     keyAchievements: [
       'Successfully migrated legacy Angular 6 codebase up to Angular 16, eliminating deprecated dependencies',

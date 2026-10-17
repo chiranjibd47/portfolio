@@ -160,18 +160,33 @@
 }
 
 .btn-resume {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 0.45rem 0.95rem;
+  padding: 0.4rem 0.85rem;
   border-radius: var(--radius-md);
   background: rgba(139, 92, 246, 0.12);
   color: var(--accent-purple-light);
   border: 1px solid rgba(139, 92, 246, 0.35);
   text-decoration: none;
   transition: all 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .btn-resume {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-role {
+    display: none;
+  }
+  .brand-name {
+    font-size: 0.9rem;
+  }
 }
 
 .btn-resume:hover {
